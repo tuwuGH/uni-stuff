@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <math.h>
+
+int main ()
+{
+	int k, m, f;
+	printf("Enter k : ");
+	scanf ("%d", &k);
+	printf("Enter m : ");
+	scanf ("%d", &m);
+	f=k>m/2?k*m-4:(m>k/2?k-4*m:m-4);
+	printf("f(%d,%d)=%d",k,m,f);
+	return 0;
+}
