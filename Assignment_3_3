@@ -1,0 +1,42 @@
+#include <stdio.h> 
+#include <math.h> 
+
+int main () 
+{ 
+	// cn - current n for 1~n 
+	// yf - final result
+	float  x,y,yf,n,cn;
+	double acc,acctemp;  
+	printf("Enter x (x < 1) : "); 
+	scanf("%f",&x); 
+	if(x>1) 
+	{
+		printf("X Should be less than 1\n");
+		return 1;
+	}	
+	printf("Enter n (n > 1) : ");
+	scanf("%f",&n);
+	if(n<1) 
+	{
+		printf("N Should be more than 1\n");
+		return 2;
+	}	 
+	printf("Enter accuracy : 10^-");
+	scanf("%lf",&acctemp);
+	acc=pow(0.1,acctemp);
+	cn=1; 
+	yf=0; 
+	// 1 - Until # of iteration ends
+	// 2 - if change becomes too small and doesnt affect final result anymore
+	for(n;cn<=n;++cn) // 1 
+	{ 
+		y=(pow(-1,cn)*pow(x,cn))/pow((cn+1),2);
+		if (fabs(y)<acc) break; // 2 
+		yf+=y;
+		
+	} 
+	if (cn>n) cn--; // Return to how many iterations was made if exiting from reaching N
+	printf("Result = %.4f\n",yf); 
+	printf("Total # of Iterations = %.0lf",cn);
+	return 0; 
+}
